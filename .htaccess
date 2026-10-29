@@ -1,0 +1,12 @@
+# Keep internals, tests, docs and Android sources away from the web.
+RedirectMatch 403 ^/(?:.*/)?(lib|tests|docs|tracker-android|partials)(/|$)
+<FilesMatch "^(config\.php|schema\.sql|README\.md)$">
+  Require all denied
+</FilesMatch>
+
+# Pass the Authorization header through to PHP (needed on some hosts using CGI/FastCGI).
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+Options -Indexes

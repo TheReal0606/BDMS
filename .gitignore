@@ -1,0 +1,17 @@
+# Secrets / per-machine config
+config.php
+tracker-android/local.properties
+
+# Android build output
+tracker-android/.gradle/
+tracker-android/build/
+tracker-android/app/build/
+tracker-android/.idea/
+*.iml
+
+# Built APKs (rebuild from tracker-android/ or attach to a GitHub release)
+downloads/*.apk
+
+# Local scratch
+.superpowers/
+*.log
